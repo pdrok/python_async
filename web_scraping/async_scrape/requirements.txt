@@ -1,0 +1,6 @@
+bs4
+colorama
+
+aiohttp
+aiodns
+cchardet
