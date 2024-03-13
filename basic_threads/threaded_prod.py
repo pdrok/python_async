@@ -12,7 +12,7 @@ def main():
     threads = [
         threading.Thread(target=generate_data, args=(20, data), daemon=True),
         threading.Thread(target=generate_data, args=(20, data), daemon=True),
-        threading.Thread(target=process_data, args=(20, data), daemon=True),
+        threading.Thread(target=process_data, args=(40, data), daemon=True),
     ]
 
     abort_thread = threading.Thread(target=check_cancel, daemon=True)
