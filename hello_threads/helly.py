@@ -3,13 +3,19 @@ import threading
 
 
 def main():
-    t = threading.Thread(target=greeter, args=("Michael", 10), daemon=True)
-    t.start()
+    threads = [
+        threading.Thread(target=greeter, args=("Michael", 10), daemon=True),
+        threading.Thread(target=greeter, args=("Sarah", 5), daemon=True),
+        threading.Thread(target=greeter, args=("Zoe", 2), daemon=True),
+        threading.Thread(target=greeter, args=("Mark", 11), daemon=True),
+    ]
+
+    [t.start() for t in threads]
 
     print("This is other work.")
     print(2 * 2)
 
-    t.join()
+    [t.join(timeout=1) for t in threads]
     print("Done.")
 
 
